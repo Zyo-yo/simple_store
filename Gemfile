@@ -67,3 +67,5 @@ end
 
 
 gem "faker"
+
+gem "csv"
