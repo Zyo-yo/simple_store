@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+# Clear existing products so rerunning seeds keeps the total at 676.
+Product.destroy_all
+
+676.times do
+  Product.create!(
+    title: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 1.0..100.0),
+    stock_quantity: Faker::Number.between(from: 0, to: 100)
+  )
+end
+
+puts "Created #{Product.count} products."
